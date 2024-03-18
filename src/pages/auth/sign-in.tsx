@@ -29,7 +29,7 @@ export function SignIn() {
   const { mutateAsync: authenticate } = useMutation({
     mutationFn: signIn,
     onSuccess: (_, data) => {
-      toast.success('Link enviado para o seu email!    ', {
+      toast.success('Link enviado para o seu email!', {
         action: {
           label: 'reenviar',
           onClick: () => handleSignIn(data),
