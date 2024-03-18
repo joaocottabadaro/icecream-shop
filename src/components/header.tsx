@@ -18,7 +18,7 @@ export default function Header() {
             Início
           </NavLink>
 
-          <NavLink to="orders">
+          <NavLink to="/orders">
             <Utensils className="h-4 w-4" />
             Pedidos
           </NavLink>

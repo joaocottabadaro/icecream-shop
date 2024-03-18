@@ -19,7 +19,7 @@ export function SignIn() {
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isLoading },
   } = useForm<SignInForm>({
     defaultValues: {
       email: searchParams.get('email') ?? '',
@@ -28,17 +28,21 @@ export function SignIn() {
 
   const { mutateAsync: authenticate } = useMutation({
     mutationFn: signIn,
+    onSuccess: (_, data) => {
+      toast.success('Link enviado para o seu email!    ', {
+        action: {
+          label: 'reenviar',
+          onClick: () => handleSignIn(data),
+        },
+      })
+    },
+    onError: () => {
+      toast.error('Credenciais inválidas.')
+    },
   })
 
   async function handleSignIn(data: SignInForm) {
     await authenticate({ email: data.email })
-
-    toast.success('Link enviado para o seu email!    ', {
-      action: {
-        label: 'reenviar',
-        onClick: () => handleSignIn(data),
-      },
-    })
   }
 
   return (
@@ -63,7 +67,7 @@ export function SignIn() {
               <Input id="email" type="email" {...register('email')} />
             </div>
 
-            <Button className="w-full" type="submit" disabled={isSubmitting}>
+            <Button className="w-full" type="submit" disabled={isLoading}>
               Acessar painel
             </Button>
           </form>

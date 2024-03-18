@@ -20,6 +20,8 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
+import { OrderDetailsSkeleton } from './order-details-skeleton'
+
 interface OrderDetailsProps {
   orderId: string
 
@@ -136,7 +138,7 @@ export function OrderDetails({ orderId, openModal }: OrderDetailsProps) {
           </Table>
         </div>
       ) : (
-        <div> Loaidn</div>
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
   )

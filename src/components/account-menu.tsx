@@ -49,17 +49,17 @@ export default function AccountMenu() {
     <Dialog>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          {isLoadingManagedRestaurant ? (
-            <Skeleton className="h-8 w-48" />
-          ) : (
-            <Button
-              variant="outline"
-              className="flex select-none items-center gap-2"
-            >
-              {managedRestaurant?.name}
-              <ChevronDown className="h-4 w-4" />
-            </Button>
-          )}
+          <Button
+            variant="outline"
+            className="flex select-none items-center gap-2"
+          >
+            {isLoadingManagedRestaurant ? (
+              <Skeleton className="h-8 w-32" />
+            ) : (
+              managedRestaurant?.name
+            )}
+            <ChevronDown className="h-4 w-16" />
+          </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel className="flex flex-col">

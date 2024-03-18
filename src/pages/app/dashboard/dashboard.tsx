@@ -1,9 +1,9 @@
-import { MonthCanceledOrdersAmountCard } from './canceled-orders-card'
-import { DayOrdersAmountCard } from './day-orders-card'
-import { MonthOrdersAmountCard } from './orders-card'
+import { DailyOrdersCard } from './daily-orders-card'
+import { MonthlyCanceledOrdersCard } from './monthly-canceled-orders-card'
+import { MonthlyOrdersCard } from './monthly-orders-card'
+import { MonthlyRevenueCard } from './monthly-revenue-card'
 import { PopularProductsChart } from './products-chart'
 import { RevenueChart } from './revenue.chart'
-import { MonthRevenueCard } from './revenue-card'
 
 export function Dashboard() {
   return (
@@ -12,10 +12,10 @@ export function Dashboard() {
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
 
         <div className="grid grid-cols-4 gap-4">
-          <MonthRevenueCard />
-          <MonthOrdersAmountCard />
-          <DayOrdersAmountCard />
-          <MonthCanceledOrdersAmountCard />
+          <MonthlyRevenueCard />
+          <MonthlyOrdersCard />
+          <DailyOrdersCard />
+          <MonthlyCanceledOrdersCard />
         </div>
 
         <div className="grid grid-cols-9 gap-4">
